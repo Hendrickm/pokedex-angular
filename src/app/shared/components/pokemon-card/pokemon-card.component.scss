@@ -1,0 +1,95 @@
+$normal: #A8A77A;
+$fire: #EE8130;
+$water: #6390F0;
+$electric: #F7D02C;
+$grass: #7AC74C;
+$ice: #96D9D6;
+$fighting: #C22E28;
+$poison: #A33EA1;
+$ground: #E2BF65;
+$flying: #A98FF3;
+$psychic: #F95587;
+$bug: #A6B91A;
+$rock: #B6A136;
+$ghost: #735797;
+$dragon: #6F35FC;
+$dark: #705746;
+$steel: #B7B7CE;
+$fairy: #D685AD;
+
+.card {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.image-container {
+  text-align: center;
+  img {
+    width: 80%;
+  }
+}
+
+.pokemon-number {
+  color: #757070;
+}
+
+.badge {
+  padding: 8px 16px 8px 16px;
+  margin-right: 8px;
+  color: #fff;
+}
+
+.bg-normal {
+  background: $normal;
+}
+.bg-fire {
+  background: $fire;
+}
+.bg-water {
+  background: $water;
+}
+.bg-electric {
+  background: $electric;
+}
+.bg-grass {
+  background: $grass;
+}
+.bg-ice {
+  background: $ice;
+}
+.bg-fighting {
+  background: $fighting;
+}
+.bg-poison {
+  background: $poison;
+}
+.bg-ground {
+  background: $ground;
+}
+.bg-flying {
+  background: $flying;
+}
+.bg-psychic {
+  background: $psychic;
+}
+.bg-bug {
+  background: $bug;
+}
+.bg-rock {
+  background: $rock;
+}
+.bg-ghost {
+  background: $ghost;
+}
+.bg-dragon {
+  background: $dragon;
+}
+.bg-dark {
+  background: $dark;
+}
+.bg-steel {
+  background: $steel;
+}
+.bg-fairy {
+  background: $fairy;
+}
