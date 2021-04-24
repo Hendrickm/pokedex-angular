@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { forkJoin, Observable } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon';
@@ -68,7 +68,13 @@ export class PokemonsComponent implements OnInit {
       .subscribe( res => {
         this.selectedPokemonSpecies = res;
         this.selectedPokemon = pokemon;
-        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'xl', centered: true });
+        const type = this.selectedPokemon.types[0].type.name;
+        this.modalService.open(content, {
+          ariaLabelledBy: 'modal-basic-title',
+          size: 'xl',
+          centered: true,
+          windowClass: `bg-${type}`
+        });
       });
   }
 }
