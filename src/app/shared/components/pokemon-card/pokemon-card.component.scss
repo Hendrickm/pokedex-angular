@@ -21,6 +21,12 @@ $fairy: #D685AD;
   width: 100%;
   border-radius: 16px;
   margin-bottom: 16px;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.card:hover {
+  top: 2px
 }
 
 .image-container {
@@ -28,6 +34,7 @@ $fairy: #D685AD;
   img {
     width: 80%;
   }
+
 }
 
 .pokemon-number {
