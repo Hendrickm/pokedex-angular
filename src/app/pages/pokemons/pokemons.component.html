@@ -4,7 +4,7 @@
   [infiniteScrollThrottle]="50"
   (scrolled)="onScroll()">
 
-  <div *ngFor="let pokemon of pokemons" class="col-sm-6 col-md-4 col-lg-3">
+  <div *ngFor="let pokemon of pokemons" class="col-sm-6 col-md-4 col-lg-3" (click)="open(content, pokemon)">
     <app-pokemon-card
       [pokemon]="pokemon">
     </app-pokemon-card>
@@ -16,3 +16,15 @@
 <div class="row" id="img-loading-container" *ngIf="loading">
   <img src="/assets/loading.gif" id="img-loading">
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <app-pokemon-detail
+      [pokemon]="selectedPokemon">
+    </app-pokemon-detail>
+  </div>
+</ng-template>
+
+
+
+

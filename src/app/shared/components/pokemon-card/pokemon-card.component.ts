@@ -15,4 +15,8 @@ export class PokemonCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onImgError(event: any): void {
+    event.target.src = '/assets/silhouette.png';
+  }
+
 }
