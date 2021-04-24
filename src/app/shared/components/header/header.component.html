@@ -1,0 +1,16 @@
+<div class="row header-wrapper mb-4">
+  <div class="col-sm-8">
+    <div class="header">
+      <img src="/assets/images/bg-header.png" style="width: 100%;">
+    </div>
+  </div>
+
+  <div class="col-sm-4 menu">
+    <div class="d-flex justify-content-end align-items-end">
+      <a *ngFor="let menu of menus" class="img-container" [routerLink]="menu.link" routerLinkActive="active">
+        <img [src]="menu.img">
+      </a>
+
+    </div>
+  </div>
+</div>
