@@ -30,7 +30,7 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   onImgError(event: any): void {
-    event.target.src = '/assets/silhouette.png';
+    event.target.src = '/assets/images/silhouette.png';
   }
 
 }
