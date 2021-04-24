@@ -7,9 +7,7 @@
     <span class="pokemon-number">#{{ pokemon?.id | number:'3.0'}}</span>
     <h5 class="card-title"> {{pokemon?.name | titlecase}}</h5>
     <p class="card-text">
-      <span *ngFor="let item of pokemon?.types">
-        <span class="badge bg-{{item?.type?.name}}">{{item?.type?.name | titlecase}}</span>
-      </span>
+      <span *ngFor="let item of pokemon?.types" class="col-sm-4 badge bg-{{item?.type?.name}}">{{item?.type?.name | titlecase}}</span>
     </p>
   </div>
 </div>

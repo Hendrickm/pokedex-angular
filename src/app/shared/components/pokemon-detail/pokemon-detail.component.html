@@ -1,1 +1,47 @@
-{{pokemon | json}}
+<div class="row">
+
+  <div class="col-sm-12 col-md-6">
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon?.id}}.png" class="img-fluid" [alt]="pokemon?.name"
+      (error)="onImgError($event)">
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <h2> {{ pokemon.name | titlecase }} <small class="text-muted">#{{pokemon.id | number:'3.0'}}</small> </h2>
+    <h4 class="text-muted"> {{ genera }}</h4>
+
+    <p class="lead">
+      {{ pokemonSpecies.flavor_text_entries[0].flavor_text }}
+    </p>
+
+
+
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>About</a>
+        <ng-template ngbNavContent>
+          <p><span class="text-muted">Height:</span>  {{pokemon.height}}</p>
+          <p><span class="text-muted">Weight:</span>  {{pokemon.weight}}</p>
+          <p><span class="text-muted">Abilities:</span>
+            <ng-container *ngFor="let a of pokemon.abilities; let i = index">
+              {{ a.ability.name | titlecase }}{{ i < pokemon.abilities.length - 1 ? ',' : ''}}
+            </ng-container>
+          <p>
+            <span *ngFor="let item of pokemon?.types" class="col-sm-3 badge bg-{{item?.type?.name}}">{{item?.type?.name | titlecase}}</span>
+          </p>
+
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Stats</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+      </li>
+
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+  </div>
+
+</div>
+

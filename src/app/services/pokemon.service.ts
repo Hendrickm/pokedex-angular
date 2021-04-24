@@ -9,7 +9,7 @@ import { Pokemon } from '../models/pokemon';
 })
 export class PokemonService {
 
-  private url = environment.apiUrl;
+  private url = environment.apiUrl + 'pokemon/';
 
   constructor(private http: HttpClient) { }
 
@@ -17,11 +17,12 @@ export class PokemonService {
     const params = new HttpParams()
       .append('limit', String(limit))
       .append('offset', String(offset));
-    return this.http.get<any>(`${this.url}pokemon/`, { params });
+    return this.http.get<any>(this.url, { params });
   }
 
   public findByName(name: string): Observable<Pokemon> {
-    return this.http.get<Pokemon>(`${this.url}pokemon/${name}`);
+    return this.http.get<Pokemon>(`${this.url}${name}`);
   }
+
 
 }

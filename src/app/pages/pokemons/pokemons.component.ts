@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { forkJoin, Observable } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon';
+import { PokemonSpecies } from 'src/app/models/pokemon-species';
+import { PokemonSpeciesService } from 'src/app/services/pokemon-species.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -15,6 +17,7 @@ export class PokemonsComponent implements OnInit {
   public loading = false;
 
   public selectedPokemon: Pokemon;
+  public selectedPokemonSpecies: PokemonSpecies;
 
   private total: number;
   private pageSize = 12;
@@ -22,6 +25,7 @@ export class PokemonsComponent implements OnInit {
 
   constructor(
     private pokemonService: PokemonService,
+    private pokemonSpeciesService: PokemonSpeciesService,
     private modalService: NgbModal
   ) { }
 
@@ -60,7 +64,11 @@ export class PokemonsComponent implements OnInit {
   }
 
   open(content: any, pokemon: Pokemon): void {
-    this.selectedPokemon = pokemon;
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'lg', centered: true });
+    this.pokemonSpeciesService.findById(pokemon.id)
+      .subscribe( res => {
+        this.selectedPokemonSpecies = res;
+        this.selectedPokemon = pokemon;
+        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'xl', centered: true });
+      });
   }
 }

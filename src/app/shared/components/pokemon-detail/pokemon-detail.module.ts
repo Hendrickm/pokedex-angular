@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonDetailComponent } from './pokemon-detail.component';
+import { NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -12,7 +13,8 @@ import { PokemonDetailComponent } from './pokemon-detail.component';
     PokemonDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgbNavModule
   ]
 })
 export class PokemonDetailModule { }
