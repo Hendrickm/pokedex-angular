@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PokemonsRoutingModule } from './pokemons-routing.module';
 import { PokemonsComponent } from './pokemons.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { PokemonsComponent } from './pokemons.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     PokemonsRoutingModule
   ]
 })
