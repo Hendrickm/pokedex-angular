@@ -12,29 +12,43 @@ export class PokemonsComponent implements OnInit {
 
   // public pokemon: Pokemon;
 
-  public pokemons: Pokemon[];
+  public pokemons: Pokemon[] = [];
+  public loading = false;
+
+  private pageSize = 12;
 
   constructor(
     private pokemonService: PokemonService
   ) { }
 
   ngOnInit(): void {
-    // this.pokemonService.findById(1)
-    //   .subscribe( res => {
-    //     this.pokemon = res;
-    //   });
+    this.getPokemons(true);
+  }
 
-    this.pokemonService.findAll()
+  private getPokemons(initList: boolean): void {
+    this.pokemonService.findAll(this.pageSize, this.pokemons.length)
       .subscribe( res => {
         const observables: Observable<Pokemon>[] = res.results.map( (r: Pokemon) => {
           return this.pokemonService.findByName(r.name);
         });
-
-        forkJoin(observables)
-          .subscribe( pokemons => {
-            this.pokemons = pokemons;
-          });
+        this.getPokemonDetails(observables, initList);
       });
   }
 
+  private getPokemonDetails(observables: Observable<Pokemon>[], initList: boolean): void {
+    forkJoin(observables)
+      .subscribe( pokemons => {
+        if (initList) {
+          this.pokemons = pokemons;
+        } else {
+          this.pokemons = this.pokemons.concat(pokemons);
+        }
+        this.loading = false;
+      });
+  }
+
+  public onScroll(): void {
+    this.loading = true;
+    this.getPokemons(false);
+  }
 }

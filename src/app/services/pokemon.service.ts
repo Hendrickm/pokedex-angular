@@ -15,8 +15,8 @@ export class PokemonService {
 
   public findAll(limit: number, offset = 0): Observable<any> {
     const params = new HttpParams()
-      .append('limit', '12')
-      .append('offset', '0');
+      .append('limit', String(limit))
+      .append('offset', String(offset));
     return this.http.get<any>(`${this.url}pokemon/`, { params });
   }
 
