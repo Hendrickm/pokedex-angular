@@ -24,5 +24,9 @@ export class PokemonService {
     return this.http.get<Pokemon>(`${this.url}${name}`);
   }
 
+  public findById(id: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(`${this.url}${id}`);
+  }
+
 
 }

@@ -8,10 +8,10 @@
       (error)="onImgError($event)">
   </div>
   <div class="card-body">
-    <span class="pokemon-number">#{{ pokemon?.id | number:'3.0'}}</span>
-    <h5 class="card-title"> {{pokemon?.name | titlecase}}</h5>
+    <span class="pokemon-number">#{{ pokemon?.id | number:'3.0' }}</span>
+    <h5 class="card-title"> {{ pokemon?.name | titlecase }}</h5>
     <p class="card-text">
-        <span *ngFor="let item of pokemon?.types" class="col-sm-5 badge bg-{{item?.type?.name}}">{{item?.type?.name | titlecase}}</span>
+      <span *ngFor="let item of pokemon?.types" class="col-sm-5 badge bg-{{item?.type?.name}}">{{item?.type?.name | titlecase}}</span>
     </p>
 
 

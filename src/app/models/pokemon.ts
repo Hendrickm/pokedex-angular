@@ -10,4 +10,5 @@ export interface Pokemon {
   stats: Stat[];
   types: Type[];
   abilities: Ability[];
+  base_experience: number;
 }

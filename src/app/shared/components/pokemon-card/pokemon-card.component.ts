@@ -17,9 +17,7 @@ export class PokemonCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const storage = localStorage.getItem(this.STORAGE_KEY);
-    const capturedPokemons: number[] = storage ? JSON.parse(storage) : [];
-    this.capturedPokemons = capturedPokemons;
+    this.capturedPokemons = this.getStorage();
   }
 
   onImgError(event: any): void {
@@ -27,21 +25,30 @@ export class PokemonCardComponent implements OnInit {
   }
 
   public releasePokemon(): void {
-    this.capturedPokemons = this.capturedPokemons.filter( p => p !== this.pokemon.id);
-    this.updateStorage();
+    let capturedPokemons = this.getStorage();
+    capturedPokemons = capturedPokemons.filter( p => p !== this.pokemon.id);
+    this.updateStorage(capturedPokemons);
   }
 
   public capturePokemon(): void {
-    this.capturedPokemons.push(this.pokemon.id);
-    this.updateStorage();
+    const capturedPokemons = this.getStorage();
+    capturedPokemons.push(this.pokemon.id);
+    this.updateStorage(capturedPokemons);
   }
 
   public isCaptured(): boolean {
     return this.capturedPokemons.some( p => p === this.pokemon.id);
   }
 
-  private updateStorage(): void {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.capturedPokemons));
+  private updateStorage(capturedPokemons: number[]): void {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(capturedPokemons));
+    this.capturedPokemons = this.getStorage();
+  }
+
+  private getStorage(): number[] {
+    const storage = localStorage.getItem(this.STORAGE_KEY);
+    const capturedPokemons: number[] = storage ? JSON.parse(storage) : [];
+    return capturedPokemons;
   }
 
 }

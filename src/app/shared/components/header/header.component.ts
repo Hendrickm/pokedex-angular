@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public menus = [
-    { img: '/assets/images/pokedex.png', link: '/pokemons' },
-    { img: '/assets/images/bag.png', link: '/my-pokemons' }
+    { img: '/assets/images/pokedex.png', link: 'pokemons' },
+    { img: '/assets/images/bag.png', link: 'captured-pokemons' }
   ];
 
   constructor() { }

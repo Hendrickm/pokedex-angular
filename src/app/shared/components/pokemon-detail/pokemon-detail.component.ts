@@ -8,9 +8,10 @@ import { PokemonSpecies } from 'src/app/models/pokemon-species';
   styleUrls: ['./pokemon-detail.component.scss']
 })
 export class PokemonDetailComponent implements OnInit {
-
   private ENGLISH = 'en';
+
   @Input() pokemon: Pokemon;
+
   private _pokemonSpecies: PokemonSpecies;
   @Input() set pokemonSpecies(species: PokemonSpecies) {
     if (species) {
@@ -22,6 +23,7 @@ export class PokemonDetailComponent implements OnInit {
     return this._pokemonSpecies;
   }
   public genera: string;
+
   public active = 1;
 
   constructor() { }

@@ -1,18 +1,29 @@
-<div>
-  <p><span class="text-muted">Height:</span> {{ pokemon.height }}</p>
-  <p><span class="text-muted">Weight:</span> {{ pokemon.weight }}</p>
-  <p>
-    <span class="text-muted">Abilities:</span>
-    <ng-container *ngFor="let a of pokemon.abilities; let i = index">
-      {{ a.ability.name | titlecase}}{{ i < pokemon.abilities.length - 1 ? "," : "" }}
-    </ng-container>
-  </p>
+<div class="row mb-3">
 
-  <p>
-    <span
-      *ngFor="let item of pokemon?.types"
-      class="col-sm-3 badge bg-{{ item?.type?.name }}"
-      >{{ item?.type?.name | titlecase }}</span
-    >
-  </p>
+  <div class="col-sm-4">
+    <h5>Height</h5>
+    <span class="badge badge-pill"> {{ pokemon.height }}</span>
+  </div>
+  <div class="col-sm-4">
+    <h5>Weight</h5>
+    <span class="badge badge-pill"> {{ pokemon.weight }}</span>
+  </div>
 </div>
+
+<div class="row mb-3">
+  <div class="col-sm-4">
+    <h5>Base Experience</h5>
+    <span class="badge badge-pill"> {{ pokemon.base_experience }}</span>
+  </div>
+</div>
+<div>
+
+<div class="row mb-3">
+  <div class="col-sm-12">
+    <h5>Abilities:</h5>
+    <ng-container *ngFor="let a of pokemon.abilities; let i = index">
+      <span class="badge badge-pill">{{ a.ability.name | titlecase}}</span>
+    </ng-container>
+  </div>
+</div>
+
