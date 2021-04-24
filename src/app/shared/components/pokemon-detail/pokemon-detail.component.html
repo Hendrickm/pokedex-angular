@@ -34,7 +34,8 @@
       <li [ngbNavItem]="2">
         <a ngbNavLink>Stats</a>
         <ng-template ngbNavContent>
-
+          <app-pokemon-detail-stats
+            [stats]="pokemon.stats"></app-pokemon-detail-stats>
         </ng-template>
       </li>
 

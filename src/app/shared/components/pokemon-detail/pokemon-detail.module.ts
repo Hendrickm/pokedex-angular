@@ -2,18 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonDetailComponent } from './pokemon-detail.component';
 import { NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { PokemonDetailStatsComponent } from './pokemon-detail-stats/pokemon-detail-stats.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
 @NgModule({
   declarations: [
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    PokemonDetailStatsComponent
   ],
   exports: [
     PokemonDetailComponent
   ],
   imports: [
     CommonModule,
+    ChartsModule,
     NgbNavModule
   ]
 })
