@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku_start": "node server"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/router": "~11.2.11",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
     "ngx-infinite-scroll": "^10.0.1",
     "popper.js": "^1.16.1",
