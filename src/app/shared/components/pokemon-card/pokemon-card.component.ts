@@ -19,4 +19,8 @@ export class PokemonCardComponent implements OnInit {
     event.target.src = '/assets/silhouette.png';
   }
 
+  get type() {
+    return this.pokemon.types[0].type.name;
+  }
+
 }

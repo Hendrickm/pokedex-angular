@@ -1,7 +1,7 @@
 <div class="card" >
   <div class="image-container">
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon?.id}}.png" class="img-fluid" [alt]="pokemon?.name"
-    (error)="onImgError($event)">
+      (error)="onImgError($event)">
   </div>
   <div class="card-body">
     <span class="pokemon-number">#{{ pokemon?.id | number:'3.0'}}</span>

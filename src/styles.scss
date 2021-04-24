@@ -23,12 +23,21 @@ $fairy: #D685AD;
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@font-face {
+  font-family: "Free Pixel";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Free Pixel"), local("Free Pixel"), url("./assets/fonts/FreePixel.ttf") format("truetype");
+}
+
 
 body {
-  font-family: 'Kanit', sans-serif !important;
-  background-color: #fafafa !important;
+  font-family: 'Free Pixel', sans-serif !important;
+  background-image: url('/assets/background.jpeg');
+  background-attachment: fixed;
+  background-position: bottom;
 }
+
 
 .bg-normal {
   background: $normal;
