@@ -1,4 +1,8 @@
 <div class="card" >
+  <div class="d-flex justify-content-end capture-container">
+    <img *ngIf="!isCaptured()" src="/assets/images/not-captured.png" class="image-captured" (click)="capturePokemon(); $event.stopPropagation()">
+    <img *ngIf="isCaptured()" src="/assets/images/captured.png" class="image-captured" (click)="releasePokemon(); $event.stopPropagation()">
+  </div>
   <div class="image-container">
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon?.id}}.png" class="img-fluid" [alt]="pokemon?.name"
       (error)="onImgError($event)">
@@ -9,5 +13,6 @@
     <p class="card-text">
       <span *ngFor="let item of pokemon?.types" class="col-sm-4 badge bg-{{item?.type?.name}}">{{item?.type?.name | titlecase}}</span>
     </p>
+
   </div>
 </div>
