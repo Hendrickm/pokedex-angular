@@ -13,18 +13,9 @@
       {{ pokemonSpecies.flavor_text_entries[0].flavor_text }}
     </p>
 
+    <span  *ngFor="let item of pokemon?.types" class="badge bg-{{ item?.type?.name }}">{{ item?.type?.name | titlecase }}</span>
 
-  <div>
-    <p>
-      <span
-        *ngFor="let item of pokemon?.types"
-        class="col-sm-3 badge bg-{{ item?.type?.name }}"
-        >{{ item?.type?.name | titlecase }}</span
-      >
-    </p>
-  </div>
-
-    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs mt-4">
 
       <li [ngbNavItem]="1">
         <a ngbNavLink>About</a>
