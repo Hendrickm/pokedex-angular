@@ -34,7 +34,7 @@ export class PokemonsComponent implements OnInit {
   }
 
   private getPokemons(initList: boolean): void {
-    this.pokemonService.findAll(this.pageSize, this.pokemons.length)
+    this.pokemonService.findPage(this.pageSize, this.pokemons.length)
       .subscribe( res => {
         this.total = res.count;
         const observables: Observable<Pokemon>[] = res.results.map( (r: Pokemon) => {

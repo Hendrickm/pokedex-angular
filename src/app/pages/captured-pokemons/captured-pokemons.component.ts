@@ -7,7 +7,7 @@ import { PokemonSpeciesService } from 'src/app/services/pokemon-species.service'
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
-  selector: 'captured-my-pokemons',
+  selector: 'app-captured-pokemons',
   templateUrl: './captured-pokemons.component.html',
   styleUrls: ['./captured-pokemons.component.scss']
 })

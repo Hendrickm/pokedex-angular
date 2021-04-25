@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Page } from '../models/page';
 import { Pokemon } from '../models/pokemon';
 
 @Injectable({
@@ -13,11 +14,11 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-  public findAll(limit: number, offset = 0): Observable<any> {
+  public findPage(limit: number, offset = 0): Observable<Page<Pokemon>> {
     const params = new HttpParams()
       .append('limit', String(limit))
       .append('offset', String(offset));
-    return this.http.get<any>(this.url, { params });
+    return this.http.get<Page<Pokemon>>(this.url, { params });
   }
 
   public findByName(name: string): Observable<Pokemon> {
